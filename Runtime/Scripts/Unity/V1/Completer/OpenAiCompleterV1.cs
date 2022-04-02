@@ -33,7 +33,7 @@ namespace OpenAi.Unity.V1
         /// The id of the engine to use
         /// </summary>
         [Tooltip("The id of the engine to use")]
-        public EEngineName Engine = EEngineName.davinci;
+        public EEngineName Engine = EEngineName.gpt_neo_1_3b;
 
         public void Start()
         {
