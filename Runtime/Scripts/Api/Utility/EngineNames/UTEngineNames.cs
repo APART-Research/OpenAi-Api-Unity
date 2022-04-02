@@ -2,14 +2,15 @@
 {
     public static class UTEngineNames
     {
-        public const string ada = "ada";
-        public const string babbage = "babbage";
-        public const string content_filter_alpha_c4 = "content-filter-alpha-c4";
-        public const string content_filter_dev = "content-filter-dev";
-        public const string curie = "curie";
-        public const string cursing_filter_v6 = "cursing-filter-v6";
-        public const string davinci = "davinci";
-        public const string instruct_curie_beta = "curie-instruct-beta";
-        public const string instruct_davinci_beta = "davinci-instruct-beta";
+        public const string gpt_neo_20b = "gpt-neo-20b";
+        public const string gpt_j_6b = "gpt-j-6b";
+        public const string gpt_neo_2_7b = "gpt-neo-2-7b";
+        public const string gpt_neo_1_3b = "gpt-neo-1-3b";
+        public const string gpt_neo_125m = "gpt-neo-125m";
+        public const string fairseq_13b = "fairseq-13b";
+        public const string fairseq_6_7b = "fairseq-6-7b";
+        public const string fairseq_2_7b = "fairseq-2-7b";
+        public const string fairseq_1_3b = "fairseq-1-3b";
+        public const string fairseq_125m = "fairseq-125m";
     }
 }
