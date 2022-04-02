@@ -37,12 +37,12 @@ namespace OpenAi.Json
         private static int ParseObject(JsonObject parent, string[] syntax, int index)
         {
             int i = index;
-            for (; i<syntax.Length; i++)
+            for (; i < syntax.Length; i++)
             {
                 i = ParseValue(parent, syntax, i);
                 if (syntax[i] == "}") return i + 1;
             }
-            throw new OpenAiJsonException($"Failed to parse object at token { syntax[i] }");
+            throw new OpenAiJsonException($"Failed to parse object at token {syntax[i]}");
         }
 
         private static int ParseList(JsonObject parent, string[] syntax, int index)
@@ -53,13 +53,14 @@ namespace OpenAi.Json
                 i = ParseListValue(parent, syntax, i);
                 if (syntax[i] == "]") return i + 1;
             }
-            throw new OpenAiJsonException($"Failed to parse list at token { syntax[i] }");
+            throw new OpenAiJsonException($"Failed to parse list at token {syntax[i]}");
         }
 
         private static int ParseValue(JsonObject parent, string[] syntax, int index)
         {
+
             // Validate
-            if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token { syntax[index] } because it is not preceeded by a :, prceeded by { syntax[index+1] }");
+            // if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} because it is not preceeded by a :, preceded by {syntax[index + 1]}");
 
             JsonObject val = new JsonObject();
             val.Name = syntax[index];
@@ -67,7 +68,7 @@ namespace OpenAi.Json
             if (parent.NestedValues == null) parent.NestedValues = new List<JsonObject>();
             parent.NestedValues.Add(val);
 
-            switch (syntax[index + 2]) 
+            switch (syntax[index + 2])
             {
                 case "{":
                     val.Type = EJsonType.Object;
