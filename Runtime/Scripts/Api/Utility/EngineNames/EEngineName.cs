@@ -4,15 +4,16 @@ namespace OpenAi.Api
 {
     public enum EEngineName
     {
-        ada,
-        babbage,
-        content_filter_alpha_c4,
-        content_filter_dev,
-        curie,
-        cursing_filter_v6,
-        davinci,
-        instruct_curie_beta,
-        instruct_davinci_beta
+        gpt_neo_20b,
+        gpt_j_6b,
+        gpt_neo_2_7b,
+        gpt_neo_1_3b,
+        gpt_neo_125m,
+        fairseq_13b,
+        fairseq_6_7b,
+        fairseq_2_7b,
+        fairseq_1_3b,
+        fairseq_125m
     }
 
     public static class UTEEngineName
@@ -21,24 +22,26 @@ namespace OpenAi.Api
         {
             switch (name)
             {
-                case EEngineName.ada:
-                    return UTEngineNames.ada;
-                case EEngineName.babbage:
-                    return UTEngineNames.babbage;
-                case EEngineName.content_filter_alpha_c4:
-                    return UTEngineNames.content_filter_alpha_c4;
-                case EEngineName.content_filter_dev:
-                    return UTEngineNames.content_filter_dev;
-                case EEngineName.curie:
-                    return UTEngineNames.curie;
-                case EEngineName.cursing_filter_v6:
-                    return UTEngineNames.cursing_filter_v6;
-                case EEngineName.davinci:
-                    return UTEngineNames.davinci;
-                case EEngineName.instruct_curie_beta:
-                    return UTEngineNames.instruct_curie_beta;
-                case EEngineName.instruct_davinci_beta:
-                    return UTEngineNames.instruct_davinci_beta;
+                case EEngineName.gpt_neo_20b:
+                    return UTEngineNames.gpt_neo_20b;
+                case EEngineName.gpt_j_6b:
+                    return UTEngineNames.gpt_j_6b;
+                case EEngineName.gpt_neo_2_7b:
+                    return UTEngineNames.gpt_neo_2_7b;
+                case EEngineName.gpt_neo_1_3b:
+                    return UTEngineNames.gpt_neo_1_3b;
+                case EEngineName.gpt_neo_125m:
+                    return UTEngineNames.gpt_neo_125m;
+                case EEngineName.fairseq_13b:
+                    return UTEngineNames.fairseq_13b;
+                case EEngineName.fairseq_6_7b:
+                    return UTEngineNames.fairseq_6_7b;
+                case EEngineName.fairseq_2_7b:
+                    return UTEngineNames.fairseq_2_7b;
+                case EEngineName.fairseq_1_3b:
+                    return UTEngineNames.fairseq_1_3b;
+                case EEngineName.fairseq_125m:
+                    return UTEngineNames.fairseq_125m;
             }
 
             throw new ArgumentException($"Invalid enum value provided when getting engine name. Value provided: {name}");

@@ -42,7 +42,7 @@ namespace OpenAi.Unity.V1
             if (Auth == null) Auth = ScriptableObject.CreateInstance<SOAuthArgsV1>();
             if (Args == null) Args = ScriptableObject.CreateInstance<SOCompletionArgsV1>();
 
-            if (!_gateway.IsInitialized) 
+            if (!_gateway.IsInitialized)
             {
                 _gateway.Auth = Auth;
                 _gateway.InitializeApi();
@@ -53,8 +53,8 @@ namespace OpenAi.Unity.V1
 
         public Coroutine Complete(string prompt, Action<string> onResponse, Action<UnityWebRequest> onError)
         {
-            CompletionRequestV1 request = Args == null ? 
-                new CompletionRequestV1() { max_tokens = 64 } : 
+            CompletionRequestV1 request = Args == null ?
+                new CompletionRequestV1() { max_tokens = 64 } :
                 Args.AsCompletionRequest();
 
             request.prompt = prompt;
@@ -67,7 +67,7 @@ namespace OpenAi.Unity.V1
             {
                 onResponse(result.Result.choices[0].text);
                 return;
-            } 
+            }
             else
             {
                 onError(result.HttpResponse);
