@@ -19,7 +19,7 @@ namespace OpenAi.Api.V1
         public IApiResource ParentResource => null;
 
         /// <inheritdoc />
-        public string Endpoint => "https://api.openai.com/v1";
+        public string Endpoint => "https://api.goose.ai/v1";
 
         /// <inheritdoc />
         public string Url => Endpoint;
