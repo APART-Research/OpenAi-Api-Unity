@@ -49,7 +49,7 @@ namespace OpenAi.Api.V1
             if (json.Type == EJsonType.List)
             {
                 _elements = new List<string>();
-                foreach (JObject obj in json.NestedValues)
+                foreach (JsonObject obj in json.NestedValues)
                 {
                     _elements.Add(obj.StringValue);
                 }

@@ -24,7 +24,7 @@ namespace OpenAi.Api.V1
         {
             if (jsonObj.Type != EJsonType.Object) throw new Exception("Must be an object");
 
-            foreach (JObject jo in jsonObj.NestedValues)
+            foreach (JsonObject jo in jsonObj.NestedValues)
             {
                 switch (jo.Name)
                 {
