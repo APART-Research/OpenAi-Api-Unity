@@ -20,7 +20,7 @@ namespace OpenAi.Api.V1
         public string organization;
 
         /// <inheritdoc/>
-        public void FromJson(JObject jsonObj)
+        public void FromJson(JsonObject jsonObj)
         {
             if (jsonObj.Type != EJsonType.Object) throw new Exception("Must be an object");
 

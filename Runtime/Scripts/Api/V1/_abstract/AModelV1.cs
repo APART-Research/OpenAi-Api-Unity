@@ -10,7 +10,7 @@ namespace OpenAi.Api.V1
     public abstract class AModelV1 : IJsonable
     {
         /// <inheritdoc />
-        public abstract void FromJson(JObject json);
+        public abstract void FromJson(JsonObject json);
 
         /// <inheritdoc />
         public abstract string ToJson();

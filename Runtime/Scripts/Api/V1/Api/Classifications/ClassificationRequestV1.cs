@@ -76,7 +76,7 @@ namespace OpenAi.Api.V1
         public string[] expand;
 
         /// <inheritdoc />
-        public override void FromJson(JObject json)
+        public override void FromJson(JsonObject json)
         {
             if (json.Type != EJsonType.Object) throw new OpenAiApiException("Deserialization failed, provided json is not an object");
 

@@ -52,7 +52,7 @@ namespace OpenAi.Api.V1
         }
 
         /// <inheritdoc />
-        public override void FromJson(JObject jsonObj)
+        public override void FromJson(JsonObject jsonObj)
         {
             if (jsonObj.Type != EJsonType.Object) throw new Exception("Must be an object");
 

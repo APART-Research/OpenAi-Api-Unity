@@ -30,7 +30,7 @@ namespace OpenAi.Api.V1
         public LabeledExampleV1() { }
 
         /// <inheritdoc/>
-        public override void FromJson(JObject json)
+        public override void FromJson(JsonObject json)
         {
             if (json.NestedValues.Count != 2)
                 throw new OpenAiJsonException($"Received badly formated LabeledExampleV1 array");

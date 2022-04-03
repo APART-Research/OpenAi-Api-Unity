@@ -44,7 +44,7 @@ namespace OpenAi.Api.V1
         /// <summary>
         /// Popualte based on json object
         /// </summary>
-        public void FromJson(JObject json)
+        public void FromJson(JsonObject json)
         {
             if (json.Type == EJsonType.List)
             {

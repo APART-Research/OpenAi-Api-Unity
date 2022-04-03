@@ -15,6 +15,6 @@
         /// Update the objects values based on JsonObject
         /// </summary>
         /// <param name="json">JsonObject representing object instance</param>
-        void FromJson(JObject json);
+        void FromJson(JsonObject json);
     }
 }
