@@ -58,8 +58,11 @@ namespace OpenAi.Json
 
         private static int ParseValue(JsonObject parent, string[] syntax, int index)
         {
-            if (syntax[index + 1] == ":0") return index + 2;
-            if (Int32.TryParse(syntax[index + 1][1..]) != null) return syntax[index + 1][1..];
+            if (syntax[index + 1].Length > 1)
+            {
+                syntax.Insert(index + 2, syntax[index + 1][1..]);
+                syntax[index + 1] = syntax[index + 1][0];
+            }
 
             // Validate
             if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} because it is not preceeded by a :, preceeded by {syntax[index + 1]}");
