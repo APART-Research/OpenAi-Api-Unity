@@ -65,6 +65,7 @@ namespace OpenAi.Unity.V1
         {
             if (result.IsSuccess)
             {
+                Debug.Log("Completion Result: " + result.Result.choices[0].text);
                 onResponse(result.Result.choices[0].text);
                 return;
             }

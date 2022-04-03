@@ -24,7 +24,11 @@ namespace OpenAi.Examples
             Output.text = "Perform Completion...";
             OpenAiCompleterV1.Instance.Complete(
                 text,
-                s => Output.text = s,
+                s =>
+                {
+                    Output.text = s;
+                    Debug.Log(s);
+                },
                 e => Output.text = $"ERROR: StatusCode: {e.responseCode} - {e.error}"
             );
         }
