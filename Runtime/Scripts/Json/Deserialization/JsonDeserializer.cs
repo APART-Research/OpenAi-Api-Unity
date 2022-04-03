@@ -14,7 +14,7 @@ namespace OpenAi.Json
 
             JsonObject obj = JsonSyntaxAnalyzer.Parse(tokens);
             Debug.Log(obj.ToString());
-            return obj;
+            return obj.ToString();
         }
     }
 }
