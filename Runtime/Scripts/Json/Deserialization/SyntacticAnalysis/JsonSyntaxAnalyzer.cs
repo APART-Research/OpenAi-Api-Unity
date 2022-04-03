@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OpenAi.Json
 {
@@ -40,7 +41,8 @@ namespace OpenAi.Json
             for (; i < syntax.Length; i++)
             {
                 i = ParseValue(parent, syntax, i);
-                if (syntax[i] == "}") return i + 1;
+                if (syntax.Length < i & syntax[i] == "}") return i + 1;
+                else if (syntax.Length >= i) return i;
             }
             throw new OpenAiJsonException($"Failed to parse object at token {syntax[i]}");
         }
@@ -51,23 +53,25 @@ namespace OpenAi.Json
             for (; i < syntax.Length; i++)
             {
                 i = ParseListValue(parent, syntax, i);
-                if (syntax[i] == "]") return i + 1;
+                if (syntax.Length < i & syntax[i] == "]") return i + 1;
+                else if (syntax.Length >= i) return i;
             }
             throw new OpenAiJsonException($"Failed to parse list at token {syntax[i]}");
         }
 
         private static int ParseValue(JsonObject parent, string[] syntax, int index)
         {
-            syntax = (List<string>)syntax.Clone();
-            if (syntax[index + 1].Length > 1)
+            // List<string> listax = syntax.ToList<string>();
+            if (syntax[index + 1] != ":")
             {
-                syntax.Insert(index + 2, syntax[index + 1][1..]);
-                syntax[index + 1] = (String)syntax[index + 1][0..1];
+                syntax[index + 1] = ":";
+                // listax.Insert(index + 2, listax[index + 1][1..]);
+                // listax[index + 1] = (String)listax[index + 1][0..1];
             }
-            syntax = syntax.ToArray();
+            // syntax = listax.ToArray();
 
             // Validate
-            if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} because it is not preceeded by a :, preceeded by {syntax[index + 1]}");
+            if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} at {index} because it is not preceeded by a : but by {syntax[index + 1]}");
 
             JsonObject val = new JsonObject();
             val.Name = syntax[index];
