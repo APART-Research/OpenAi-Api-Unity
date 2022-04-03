@@ -9,7 +9,7 @@ namespace OpenAi.Json
         public static JsonObject FromJson(string json)
         {
             string[] tokens = JsonLexer.Lex(json);
-            console.log(tokens);
+            Debug.Log(tokens);
             return JsonSyntaxAnalyzer.Parse(tokens);
         }
     }
