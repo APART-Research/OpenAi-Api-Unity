@@ -15,7 +15,7 @@ namespace OpenAi.Api.V1
         public string search_model;
         public SelectedDocumentV1[] selected_documents;
 
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             foreach (JsonObject jo in json.NestedValues)
             {

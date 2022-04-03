@@ -52,11 +52,11 @@ namespace OpenAi.Api.V1
         }
 
         /// <inheritdoc />
-        public override void FromJson(JsonObject jsonObj)
+        public override void FromJson(JObject jsonObj)
         {
             if (jsonObj.Type != EJsonType.Object) throw new Exception("Must be an object");
 
-            foreach(JsonObject jo in jsonObj.NestedValues)
+            foreach (JsonObject jo in jsonObj.NestedValues)
             {
                 switch (jo.Name)
                 {
@@ -74,7 +74,7 @@ namespace OpenAi.Api.V1
                         break;
                     case nameof(choices):
                         ChoiceV1[] choiceArray = new ChoiceV1[jo.NestedValues.Count];
-                        for(int i = 0; i<choiceArray.Length; i++)
+                        for (int i = 0; i < choiceArray.Length; i++)
                         {
                             ChoiceV1 n = new ChoiceV1();
                             n.FromJson(jo.NestedValues[i]);
