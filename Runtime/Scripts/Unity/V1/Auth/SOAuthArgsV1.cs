@@ -40,7 +40,7 @@ namespace OpenAi.Unity.V1
         /// <returns></returns>
         public SAuthArgsV1 ResolveAuth()
         {
-            switch (AuthType) 
+            switch (AuthType)
             {
                 case EAuthProvisionMethod.LocalFile: return ResolveLocalFileAuthArgs();
                 case EAuthProvisionMethod.String: return new SAuthArgsV1() { private_api_key = PrivateApiKey, organization = Organization };
