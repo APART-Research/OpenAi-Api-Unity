@@ -60,7 +60,7 @@ namespace OpenAi.Json
         {
 
             // Validate
-            if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} because it is not preceeded by a :, preceded by {syntax[index + 1]}");
+            if (syntax[index + 1] != ":") throw new OpenAiJsonException($"Failed to value at token {syntax[index]} because it is not preceeded by a :, preceeded by {syntax[index + 1]}");
 
             JsonObject val = new JsonObject();
             val.Name = syntax[index];

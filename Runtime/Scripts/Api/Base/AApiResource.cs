@@ -1,10 +1,12 @@
-using OpenAi.Json;
+// using OpenAi.Json;
 
 using System;
 using System.Collections;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using NewtonSoft.Json.Linq;
 
 using UnityEngine;
 using UnityEngine.Networking;
@@ -169,10 +171,10 @@ namespace OpenAi.Api.V1
             where TResponse : AModelV1, new()
         {
             UnityWebRequest response = await PostRequestAsync(request);
-            
+
             ApiResult<TResponse> status = new ApiResult<TResponse>() { IsSuccess = response.result == UnityWebRequest.Result.Success, HttpResponse = response };
             onRequestStatus(status);
-            
+
             if (response.result == UnityWebRequest.Result.Success) await ReadEventStreamAsync(response, onPartialResult, onCompletion);
         }
 
@@ -248,13 +250,18 @@ namespace OpenAi.Api.V1
 
                         if (line == "[DONE]")
                         {
-                            if(onCompletion != null) onCompletion();
+                            if (onCompletion != null) onCompletion();
                             return;
                         }
                         else if (!string.IsNullOrWhiteSpace(line))
                         {
                             index++;
-                            JsonObject obj = JsonDeserializer.FromJson(line.Trim());
+
+                            Debug.Log(line);
+
+                            JObject obj = JsonConvert.DeserializeObject<TResponse>(line.Trim());
+
+                            // JsonObject obj = JsonDeserializer.FromJson(line.Trim());
                             TResponse streamedResult = new TResponse();
                             streamedResult.FromJson(obj);
 
