@@ -61,7 +61,7 @@ namespace OpenAi.Json
             if (syntax[index + 1].Length > 1)
             {
                 syntax.Insert(index + 2, syntax[index + 1][1..]);
-                syntax[index + 1] = syntax[index + 1][0];
+                syntax[index + 1] = (String)syntax[index + 1][0..1];
             }
 
             // Validate
