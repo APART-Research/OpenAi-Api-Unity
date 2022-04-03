@@ -259,7 +259,7 @@ namespace OpenAi.Api.V1
 
                             Debug.Log(line);
 
-                            JObject obj = JsonConvert.DeserializeObject<TResponse>(line.Trim());
+                            JObject obj = JsonConvert.DeserializeObject(line.Trim());
 
                             // JsonObject obj = JsonDeserializer.FromJson(line.Trim());
                             TResponse streamedResult = new TResponse();
@@ -338,10 +338,10 @@ namespace OpenAi.Api.V1
         private TModel UnpackResponseObject<TModel>(string content)
             where TModel : AModelV1, new()
         {
-            JObject obj = JsonDeserializer.FromJson(content);
-            TModel res = new TModel();
-            res.FromJson(obj);
-            return res;
+            JObject obj = JsonConvert.DeserializeObject(content) as JObject;
+            TModel result = new TModel();
+            result.FromJson(obj);
+            return result;
         }
     }
 }
