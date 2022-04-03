@@ -20,11 +20,11 @@ namespace OpenAi.Api.V1
         public string organization;
 
         /// <inheritdoc/>
-        public void FromJson(JsonObject jsonObj)
+        public void FromJson(JObject jsonObj)
         {
             if (jsonObj.Type != EJsonType.Object) throw new Exception("Must be an object");
 
-            foreach (JsonObject jo in jsonObj.NestedValues)
+            foreach (JObject jo in jsonObj.NestedValues)
             {
                 switch (jo.Name)
                 {

@@ -1,4 +1,6 @@
-﻿using OpenAi.Json;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OpenAi.Json;
 
 namespace OpenAi.Api.V1
 {
@@ -8,16 +10,16 @@ namespace OpenAi.Api.V1
     public abstract class AModelV1 : IJsonable
     {
         /// <inheritdoc />
-        public abstract void FromJson(JsonObject json);
+        public abstract void FromJson(JObject json);
 
         /// <inheritdoc />
         public abstract string ToJson();
 
-        public static T[] ArrayFromJson<T>(JsonObject parent) where T : AModelV1, new()
+        public static T[] ArrayFromJson<T>(JObject parent) where T : AModelV1, new()
         {
             T[] newArray = new T[parent.NestedValues.Count];
 
-            for(int i = 0; i<parent.NestedValues.Count; i++)
+            for (int i = 0; i < parent.NestedValues.Count; i++)
             {
                 T model = new T();
                 newArray[i] = model;

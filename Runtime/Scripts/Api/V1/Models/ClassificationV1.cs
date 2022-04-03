@@ -39,7 +39,7 @@ namespace OpenAi.Api.V1
         public SelectedExampleV1[] selected_examples;
 
         /// <inheritdoc/>
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             foreach (JsonObject jo in json.NestedValues)
             {

@@ -18,7 +18,7 @@ namespace OpenAi.Api.V1
         public string text;
 
         /// <inheritdoc/>
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             foreach (JsonObject jo in json.NestedValues)
             {

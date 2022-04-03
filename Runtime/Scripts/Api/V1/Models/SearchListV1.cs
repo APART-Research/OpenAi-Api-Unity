@@ -18,15 +18,15 @@ namespace OpenAi.Api.V1
         public string obj;
 
         /// <inheritdoc/>
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
-            foreach(JsonObject jb in json.NestedValues)
+            foreach (JsonObject jb in json.NestedValues)
             {
-                switch (jb.Name) 
+                switch (jb.Name)
                 {
                     case nameof(data):
                         data = new SearchV1[jb.NestedValues.Count];
-                        for(int i = 0; i<data.Length; i++)
+                        for (int i = 0; i < data.Length; i++)
                         {
                             SearchV1 sv1 = new SearchV1();
                             sv1.FromJson(jb.NestedValues[i]);

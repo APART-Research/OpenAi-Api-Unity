@@ -30,7 +30,7 @@ namespace OpenAi.Api.V1
         public QuestionAnswerPairV1() { }
 
         /// <inheritdoc/>
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             if (json.NestedValues.Count != 2)
                 throw new OpenAiJsonException($"Received badly formated {nameof(QuestionAnswerPairV1)} array");
