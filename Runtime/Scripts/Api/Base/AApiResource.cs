@@ -257,8 +257,6 @@ namespace OpenAi.Api.V1
                         {
                             index++;
 
-                            Debug.Log(line);
-
                             // JObject obj = JsonConvert.DeserializeObject<JObject>(line.Trim());
 
                             JsonObject obj = JsonDeserializer.FromJson(line.Trim());

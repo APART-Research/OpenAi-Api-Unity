@@ -10,11 +10,7 @@ namespace OpenAi.Json
         {
             string[] tokens = JsonLexer.Lex(json);
             Debug.Log(json);
-            Debug.Log(tokens);
-            for (int i = 0; i < tokens.Length; i++)
-            {
-                Debug.Log(tokens[i]);
-            }
+            return tokens[-2];
             return JsonSyntaxAnalyzer.Parse(tokens);
         }
     }
