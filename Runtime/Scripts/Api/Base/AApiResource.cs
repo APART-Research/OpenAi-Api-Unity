@@ -338,7 +338,7 @@ namespace OpenAi.Api.V1
         private TModel UnpackResponseObject<TModel>(string content)
             where TModel : AModelV1, new()
         {
-            JsonObject obj = JsonDeserializer.FromJson(content);
+            JObject obj = JsonDeserializer.FromJson(content);
             TModel res = new TModel();
             res.FromJson(obj);
             return res;
