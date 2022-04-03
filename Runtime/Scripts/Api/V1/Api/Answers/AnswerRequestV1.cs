@@ -96,13 +96,13 @@ namespace OpenAi.Api.V1
         public string[] expand;
 
         /// <inheritdoc />
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             if (json.Type != EJsonType.Object) throw new OpenAiApiException("Deserialization failed, provided json is not an object");
 
-            foreach(JsonObject obj in json.NestedValues)
+            foreach (JsonObject obj in json.NestedValues)
             {
-                switch (obj.Name) 
+                switch (obj.Name)
                 {
                     case nameof(model):
                         model = obj.StringValue;
@@ -146,7 +146,7 @@ namespace OpenAi.Api.V1
                         break;
                     case nameof(logit_bias):
                         logit_bias = new Dictionary<string, int>();
-                        foreach(JsonObject child in obj.NestedValues)
+                        foreach (JsonObject child in obj.NestedValues)
                         {
                             logit_bias.Add(child.Name, int.Parse(child.StringValue));
                         }

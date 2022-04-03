@@ -40,21 +40,21 @@ namespace OpenAi.Api.V1
             if (_elements.Count == 1) return _elements[0];
             return _elements.ToArray();
         }
-        
+
         /// <summary>
         /// Popualte based on json object
         /// </summary>
-        public void FromJson(JsonObject json)
+        public void FromJson(JObject json)
         {
-            if(json.Type == EJsonType.List)
+            if (json.Type == EJsonType.List)
             {
                 _elements = new List<string>();
-                foreach(JsonObject obj in json.NestedValues)
+                foreach (JObject obj in json.NestedValues)
                 {
                     _elements.Add(obj.StringValue);
                 }
-            } 
-            else if(json.Type == EJsonType.Value)
+            }
+            else if (json.Type == EJsonType.Value)
             {
                 _elements = new List<string>();
                 _elements.Add(json.StringValue);

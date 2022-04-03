@@ -20,7 +20,7 @@ namespace OpenAi.Api.V1
         public string query;
 
         /// <inheritdoc/>
-        public override void FromJson(JsonObject json)
+        public override void FromJson(JObject json)
         {
             if (json.Type != EJsonType.Object) throw new Exception("Must be an object");
 
@@ -30,7 +30,7 @@ namespace OpenAi.Api.V1
                 {
                     case nameof(documents):
                         documents = new string[jo.NestedValues.Count];
-                        for(int i = 0; i<documents.Length; i++)
+                        for (int i = 0; i < documents.Length; i++)
                         {
                             documents[i] = jo.NestedValues[i].StringValue;
                         }
